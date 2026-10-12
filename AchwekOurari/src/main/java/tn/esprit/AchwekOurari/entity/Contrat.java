@@ -37,6 +37,8 @@ public class Contrat {
     private List<Paiement> paiements = new ArrayList<>();
 
 
-    @OneToOne
+
+    @OneToOne(fetch = FetchType.LAZY)
     private Reservation reservation;
+
 }

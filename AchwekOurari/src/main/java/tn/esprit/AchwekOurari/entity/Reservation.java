@@ -31,6 +31,12 @@ public class Reservation {
     @ManyToOne
     private Client client;
 
-    @OneToOne(mappedBy = "reservation")
+
+    @OneToOne(
+            mappedBy = "reservation",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     private Contrat contrat;
+
 }
