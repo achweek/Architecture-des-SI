@@ -10,13 +10,13 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
         </processorPath>
-        <module name="MaryemKhalfIET4" />
+        <module name="AchwekOurari" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="MaryemKhalfIET4" options="-parameters" />
+      <module name="AchwekOurari" options="-parameters" />
     </option>
   </component>
 </project>

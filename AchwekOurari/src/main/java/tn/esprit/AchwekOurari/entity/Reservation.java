@@ -32,11 +32,8 @@ public class Reservation {
     private Client client;
 
 
-    @OneToOne(
-            mappedBy = "reservation",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_contrat", referencedColumnName = "idContrat")
     private Contrat contrat;
 
 }

@@ -38,7 +38,11 @@ public class Contrat {
 
 
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(
+            mappedBy = "contrat",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     private Reservation reservation;
 
 }
