@@ -1,22 +1,41 @@
 package tn.esprit.AchwekOurari.WebController;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import tn.esprit.AchwekOurari.Repository.IVehiculeRepository;
+import org.springframework.web.bind.annotation.*;
 import tn.esprit.AchwekOurari.Services.IVehiculeServices;
 import tn.esprit.AchwekOurari.entity.Vehicule;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/vehicules")
 @RequiredArgsConstructor
 public class VehiculeRestController {
-    private  final IVehiculeServices iVehiculeServices;
+
+    private final IVehiculeServices iVehiculeServices;
+
     @PostMapping("/add")
-    Vehicule create(@RequestBody Vehicule vehicule){
+    public Vehicule create(@RequestBody Vehicule vehicule) {
         return iVehiculeServices.add(vehicule);
     }
 
+    @GetMapping("/get/{id}")
+    public Vehicule getById(@PathVariable Long id) {
+        return iVehiculeServices.getById(id);
+    }
+
+    @GetMapping("/all")
+    public List<Vehicule> getAll() {
+        return iVehiculeServices.getAll();
+    }
+
+    @PutMapping("/update")
+    public Vehicule update(@RequestBody Vehicule vehicule) {
+        return iVehiculeServices.update(vehicule);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable Long id) {
+        iVehiculeServices.deleteById(id);
+    }
 }
