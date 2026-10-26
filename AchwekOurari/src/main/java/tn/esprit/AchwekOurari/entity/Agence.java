@@ -1,5 +1,6 @@
 package tn.esprit.AchwekOurari.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +24,7 @@ public class Agence {
     private String adresse;
     private String telephone;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "agence")
     List<Vehicule> vehicules;
 
