@@ -1,5 +1,6 @@
 package tn.esprit.AchwekOurari.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,7 +28,7 @@ public class Client {
     private String numPermis;
     private LocalDate dateInscription;
 
-
+    @JsonManagedReference("client-reservations")
     @OneToMany(
             mappedBy = "client",
             cascade = CascadeType.PERSIST,

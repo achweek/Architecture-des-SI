@@ -1,5 +1,7 @@
 package tn.esprit.AchwekOurari.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,7 +29,7 @@ public class Contrat {
 
     private boolean valide;
 
-
+    @JsonManagedReference("contrat-paiements")
     @OneToMany(
             mappedBy = "contrat",
             cascade = CascadeType.ALL,
@@ -36,8 +38,7 @@ public class Contrat {
     )
     private List<Paiement> paiements = new ArrayList<>();
 
-
-
+    @JsonBackReference("contrat-reservation")
     @OneToOne(
             mappedBy = "contrat",
             cascade = CascadeType.ALL,

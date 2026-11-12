@@ -1,5 +1,6 @@
 package tn.esprit.AchwekOurari.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,7 +27,7 @@ public class Paiement {
     @Enumerated(EnumType.STRING)
     private ModePaiement modePaiement;
 
-
+    @JsonBackReference("contrat-paiements")
     @ManyToOne(fetch = FetchType.LAZY)
     private Contrat contrat;
 

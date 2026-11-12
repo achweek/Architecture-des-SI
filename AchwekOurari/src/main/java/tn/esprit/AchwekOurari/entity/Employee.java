@@ -1,4 +1,6 @@
 package tn.esprit.AchwekOurari.entity;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +23,7 @@ public class Employee {
     @Enumerated(EnumType.STRING)
     private RoleEmploye role;
 
+    @JsonBackReference("agence-employes")
     @ManyToOne
     private Agence agence;
 }

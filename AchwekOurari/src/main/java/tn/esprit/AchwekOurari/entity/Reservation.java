@@ -1,5 +1,7 @@
 package tn.esprit.AchwekOurari.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,10 +30,11 @@ public class Reservation {
     @ManyToOne
     private Vehicule vehicule;
 
+    @JsonBackReference("client-reservations")
     @ManyToOne
     private Client client;
 
-
+    @JsonManagedReference("contrat-reservation")
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_contrat", referencedColumnName = "idContrat")
     private Contrat contrat;

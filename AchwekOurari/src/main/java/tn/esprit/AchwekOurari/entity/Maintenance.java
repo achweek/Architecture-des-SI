@@ -1,5 +1,6 @@
 package tn.esprit.AchwekOurari.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,6 +23,7 @@ public class Maintenance {
     private LocalDate dateFin;
     private String description;
 
+    @JsonBackReference("vehicule-maintenances")
     @ManyToOne
     Vehicule vehicule;
 }

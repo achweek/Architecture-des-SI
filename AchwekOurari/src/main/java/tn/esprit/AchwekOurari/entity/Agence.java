@@ -24,10 +24,11 @@ public class Agence {
     private String adresse;
     private String telephone;
 
-    @JsonManagedReference
+    @JsonManagedReference("agence-vehicules")
     @OneToMany(mappedBy = "agence")
     List<Vehicule> vehicules;
 
+    @JsonManagedReference("agence-employes")
     @OneToMany(mappedBy = "agence")
     private List<Employee> employes;
 }

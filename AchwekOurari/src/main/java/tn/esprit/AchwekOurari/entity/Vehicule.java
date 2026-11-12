@@ -1,6 +1,7 @@
 package tn.esprit.AchwekOurari.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -30,14 +31,15 @@ public class Vehicule {
     @Enumerated(value = EnumType.STRING)
     private StatutVehicule statut;
 
+    @JsonManagedReference("vehicule-equipements")
     @ManyToMany
     List<Equipement> equipements;
 
-    @JsonBackReference
+    @JsonBackReference("agence-vehicules")
     @ManyToOne
     Agence agence;
 
-
+    @JsonManagedReference("vehicule-maintenances")
     @OneToMany(
             mappedBy = "vehicule",
             cascade = CascadeType.PERSIST,
